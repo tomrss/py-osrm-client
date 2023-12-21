@@ -226,8 +226,8 @@ class OsrmAsyncClient():
             geometries=geometries,
             overview=overview,
             annotations=annotations,
-            source=source.value,
-            destination=destination.value,
+            source=source,
+            destination=destination,
         )
         print(osrm_res)
         return model.OsrmTrip(**osrm_res)
