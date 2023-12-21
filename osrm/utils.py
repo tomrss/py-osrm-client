@@ -30,7 +30,7 @@ def _build_osrm_url(
     url_params = '&'.join(
         f'{key}={_query_param(value)}'
         for key, value in kwargs.items()
-        if value is not None
+        if value is not None and value != []
     )
 
     return f'{url_base}?{url_params}'

@@ -226,8 +226,8 @@ class OsrmClient():
             geometries=geometries,
             overview=overview,
             annotations=annotations,
-            source=source.value,
-            destination=destination.value,
+            source=source,
+            destination=destination,
         )
         return model.OsrmTrip(**osrm_res)
 
