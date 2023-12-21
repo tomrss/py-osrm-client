@@ -87,27 +87,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  test-publish:
-    name: Publish to TestPyPI
-    needs: release
-    runs-on: ubuntu-latest
-    environment:
-      name: pypitest
-      url: https://test.pypi.org/p/py-osrm-client
-    permissions:
-      id-token: write
-    steps:
-    - name: Download all the dists
-      uses: actions/download-artifact@v3
-      with:
-        name: python-package-distributions
-        path: dist/
-    - name: Publish to TestPyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        repository-url: https://test.pypi.org/legacy/
-        skip-existing: true
-
   publish:
     name: Publish to PyPI
     needs: release
