@@ -1,4 +1,3 @@
-import json
 from typing import List, Optional
 from urllib.parse import urljoin
 
@@ -283,4 +282,4 @@ class OsrmClient():
         full_url = urljoin(self.base_url, url)
         with self._session.get(full_url) as res:
             res.raise_for_status()
-            return json.loads(res.json())
+            return res.json()
