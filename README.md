@@ -1,4 +1,5 @@
 # py-osrm-client
+![build](https://github.com/tomrss/py-osrm-client/actions/workflows/build.yml/badge.svg)
 
 Simple Python client for [OSRM](http://project-osrm.org/) api.
 
