@@ -1,5 +1,6 @@
 # py-osrm-client
 ![build](https://github.com/tomrss/py-osrm-client/actions/workflows/build.yml/badge.svg)
+![publish](https://github.com/tomrss/py-osrm-client/actions/workflows/publish.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/py-osrm-client.svg)](https://badge.fury.io/py/py-osrm-client)
 
 Simple and typed Python client for [OSRM](http://project-osrm.org/) api.
