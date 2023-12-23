@@ -6,6 +6,11 @@ from urllib.parse import quote_plus
 from .model import Point
 
 
+# TODO move this from module!
+class OsrmException(Exception):
+    """Exception for error response from OSRM api."""
+
+
 def _build_osrm_url(
         service: str,
         api_version: str,
@@ -34,3 +39,22 @@ def _build_osrm_url(
     )
 
     return f'{url_base}?{url_params}'
+
+
+def _check_response(status_code: int, body: dict) -> None:
+    """Check the response raising exception if error."""
+    if 200 <= status_code < 300:
+        return
+    if 300 <= status_code < 400:
+        raise OsrmException(f'unexpected redirect status code {status_code}')
+    if 400 <= status_code < 500:
+        if body:
+            code = body.get('code', None)
+            msg = body.get('message', None)
+            raise OsrmException(f'bad request: {code}: {msg}')
+        else:
+            raise OsrmException('bad request: status code {status}')
+    if 500 <= status_code < 600:
+        raise OsrmException(f'internal server error {status_code}: {body}')
+
+    raise OsrmException(f'unknown response status code {status_code}')
