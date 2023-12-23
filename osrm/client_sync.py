@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 import requests
 
 from . import model
-from .utils import _build_osrm_url
+from .utils import _build_osrm_url, _check_response
 
 
 class OsrmClient():
@@ -287,6 +287,8 @@ class OsrmClient():
             **kwargs
         )
         full_url = urljoin(self.base_url, url)
+
         with self._session.get(full_url) as res:
-            res.raise_for_status()
-            return res.json()
+            body = res.json()
+            _check_response(res.status_code, res.json())
+            return body

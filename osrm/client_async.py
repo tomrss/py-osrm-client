@@ -3,7 +3,7 @@ from typing import List, Optional
 import aiohttp
 
 from . import model
-from .utils import _build_osrm_url
+from .utils import _build_osrm_url, _check_response
 
 
 class OsrmAsyncClient():
@@ -287,6 +287,8 @@ class OsrmAsyncClient():
             coordinates,
             **kwargs
         )
+
         async with self._session.get(url) as res:
-            res.raise_for_status()
-            return await res.json()
+            body = await res.json()
+            _check_response(res.status, body)
+            return body
