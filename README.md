@@ -54,5 +54,5 @@ async with OsrmAsyncClient(base_url='https://my-custom-osrm-server.com') as osrm
     # use client
 ```
 
-Refer to [OSRM api documentation](https://project-osrm.org/docs/v5.5.1/api/) for more details
+Refer to [OSRM api documentation](https://project-osrm.org/docs/v5.24.0/api/) for more details
 about OSRM services and options.
