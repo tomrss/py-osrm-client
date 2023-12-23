@@ -42,7 +42,7 @@ class OsrmClient():
 
     def nearest(
             self,
-            coordinates: List[model.Point],
+            coordinate: model.Point,
             profile: str = None,
             number: int = 1,
     ) -> model.OsrmNearest:
@@ -53,15 +53,22 @@ class OsrmClient():
 
         See https://project-osrm.org/docs/v5.24.0/api/#nearest-service
 
-        :param coordinates: List of coordinates.
+        :param coordinate: Coordinate.
         :keyword profile: OSRM Profile, defaults to client default.
         :keyword number: Number of nearest segments that should be returned.
 
         :return: Nearest n matches calculated by OSRM.
         :rtype: ~model.OsrmNearest
         """
+        if (
+                not isinstance(coordinate, tuple) or
+                not len(coordinate) == 2 or
+                not all(isinstance(c, float) for c in coordinate)
+        ):
+            raise Exception('provide only one coordinate tuple (lon, lat)')
+
         osrm_res = self._osrm_service(
-            'nearest', profile, coordinates,
+            'nearest', profile, [coordinate],
             number=number,
         )
         return model.OsrmNearest(**osrm_res)

@@ -35,8 +35,8 @@ def fnearest():
             assert wp.distance == 433333.1
 
     return {
-        "url": f'{base_url}/nearest/{api_v}/driving/0.1,0.2;0.3,0.4?number=1',
-        "coords": coords,
+        "url": f'{base_url}/nearest/{api_v}/driving/0.1,0.2?number=1',
+        "coords": (0.1, 0.2),
         "res_json": """
         {
           "code": "Ok",
