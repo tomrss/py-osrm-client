@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "py-osrm-client"
 description = "Python client for OSRM api"
 readme = "README.md"
-license = {text = "Apache-2.0"}
+license = {text = "MIT"}
 version = "1.0.0"
 requires-python = ">=3.8"
 authors = [
@@ -15,14 +15,13 @@ authors = [
 keywords = ["osrm", "osrm-api", "client"]
 classifiers = [
     "Development Status :: 4 - Beta",
-    "License :: OSI Approved :: Apache Software License",
-    "Natural Language :: English",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
-    "Topic :: Communications",
+    "Programming Language :: Python :: 3.11",
     "Topic :: Software Development :: Libraries",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
