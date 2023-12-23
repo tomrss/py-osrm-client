@@ -22,7 +22,7 @@ class BaseModel():
 class ResultObject(BaseModel):
     """Base OSRM result object.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#result-objects
+    See https://project-osrm.org/docs/v5.5.1/api/#result-objects
     """
 
 
@@ -30,7 +30,7 @@ class Annotation(ResultObject):
     """Annotation of the whole route leg with fine-grained information
     about each segment or node id.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#annotation-object
+    See https://project-osrm.org/docs/v5.5.1/api/#annotation-object
     """
     distance: List[float]
     duration: List[float]
@@ -41,7 +41,7 @@ class Annotation(ResultObject):
 class Waypoint(ResultObject):
     """Object used to describe waypoint on a route.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#waypoint-object
+    See https://project-osrm.org/docs/v5.5.1/api/#waypoint-object
     """
     name: str
     location: Point
@@ -58,7 +58,7 @@ class Waypoint(ResultObject):
 class Lane(ResultObject):
     """A Lane represents a turn lane at the corresponding turn location.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#lane-object
+    See https://project-osrm.org/docs/v5.5.1/api/#lane-object
     """
     indications: List[str]
     valid: bool
@@ -71,7 +71,7 @@ class Intersection(ResultObject):
     StepManeuver. Further intersections are listed for every cross-way
     until the next turn instruction.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#intersection-object
+    See https://project-osrm.org/docs/v5.5.1/api/#intersection-object
     """
     location: Point
     bearings: List[float]
@@ -94,7 +94,7 @@ class Intersection(ResultObject):
 class StepManeuver(ResultObject):
     """Step maneuver.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#stepmaneuver-object
+    See https://project-osrm.org/docs/v5.5.1/api/#stepmaneuver-object
     """
     location: Point
     bearing_before: float
@@ -108,7 +108,7 @@ class RouteStep(ResultObject):
     """A step consists of a maneuver such as a turn or merge, followed
     by a distance of travel along a single way to the subsequent step.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#routestep-object
+    See https://project-osrm.org/docs/v5.5.1/api/#routestep-object
     """
     name: str
     mode: str
@@ -138,7 +138,7 @@ class RouteStep(ResultObject):
 class RouteLeg(ResultObject):
     """Represents a route between two waypoints.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#routeleg-object
+    See https://project-osrm.org/docs/v5.5.1/api/#routeleg-object
     """
     distance: float
     duration: float
@@ -163,7 +163,7 @@ class RouteLeg(ResultObject):
 class Route(ResultObject):
     """Represents a route through (potentially multiple) waypoints.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#route-object
+    See https://project-osrm.org/docs/v5.5.1/api/#route-object
     """
     distance: float
     duration: float
@@ -198,7 +198,7 @@ class ServiceStatus(enum.Enum):
     NoSegment 	    One of the input coords could not snap to street segment.
     TooBig 	        Request size violates one of the service size restrictions.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#responses
+    See https://project-osrm.org/docs/v5.5.1/api/#responses
     """
     OK = "Ok"
     INVALID_URL = "InvalidUrl"
@@ -214,7 +214,7 @@ class ServiceStatus(enum.Enum):
 class ServiceResponse(BaseModel):
     """Base response of an OSRM service.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#services
+    See https://project-osrm.org/docs/v5.5.1/api/#services
     """
     code: ServiceStatus
 
@@ -225,7 +225,7 @@ class ServiceResponse(BaseModel):
 class OsrmTrip(ServiceResponse):
     """Response of the OSRM Trip service.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#trip-service
+    See https://project-osrm.org/docs/v5.5.1/api/#trip-service
     """
     waypoints: List[Waypoint]
     trips: List[Route]
@@ -239,7 +239,7 @@ class OsrmTrip(ServiceResponse):
 class OsrmTable(ServiceResponse):
     """Response of the OSRM Table service
 
-    See http://project-osrm.org/docs/v5.5.1/api/#table-service
+    See https://project-osrm.org/docs/v5.5.1/api/#table-service
     """
     durations: List[List[float]]
     sources: List[Waypoint]
@@ -255,7 +255,7 @@ class OsrmTable(ServiceResponse):
 class OsrmNearest(ServiceResponse):
     """Response of the OSRM Nearest service.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#nearest-service
+    See https://project-osrm.org/docs/v5.5.1/api/#nearest-service
     """
     waypoints: List[Waypoint]
 
@@ -267,7 +267,7 @@ class OsrmNearest(ServiceResponse):
 class OsrmRoute(ServiceResponse):
     """Response of the OSRM Route service.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#route-service
+    See https://project-osrm.org/docs/v5.5.1/api/#route-service
     """
     waypoints: List[Waypoint]
     routes: List[Route]
@@ -281,7 +281,7 @@ class OsrmRoute(ServiceResponse):
 class OsrmMatch(ServiceResponse):
     """Response of the OSRM Match service.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#match-service
+    See https://project-osrm.org/docs/v5.5.1/api/#match-service
     """
     tracepoints: List[Waypoint]
     matchings: List[Route]
@@ -295,6 +295,6 @@ class OsrmMatch(ServiceResponse):
 class OsrmTile(ServiceResponse):
     """Response of the OSRM Tile service.
 
-    See http://project-osrm.org/docs/v5.5.1/api/#tile-service
+    See https://project-osrm.org/docs/v5.5.1/api/#tile-service
     """
     # TODO

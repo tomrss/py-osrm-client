@@ -3,7 +3,7 @@
 ![publish](https://github.com/tomrss/py-osrm-client/actions/workflows/publish.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/py-osrm-client.svg)](https://badge.fury.io/py/py-osrm-client)
 
-Simple and typed Python client for [OSRM](http://project-osrm.org/) api.
+Simple and typed Python client for [OSRM](https://project-osrm.org/) api.
 
 ## Requirements
 
@@ -46,13 +46,13 @@ with OsrmClient() as osrm:
     print(trip)
 ```
 
-By default the clients will refer to the OSRM demo server at [http://router.project-osrm.org](http://router.project-osrm.org). 
+By default the clients will refer to the OSRM demo server at [https://router.project-osrm.org](https://router.project-osrm.org). 
 To use another OSRM server:
 
 ```python
-async with OsrmAsyncClient(base_url='http://my-custom-osrm-server.com') as osrm:
+async with OsrmAsyncClient(base_url='https://my-custom-osrm-server.com') as osrm:
     # use client
 ```
 
-Refer to [OSRM api documentation](http://project-osrm.org/docs/v5.5.1/api/) for more details 
+Refer to [OSRM api documentation](https://project-osrm.org/docs/v5.5.1/api/) for more details
 about OSRM services and options.

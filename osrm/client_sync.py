@@ -11,12 +11,12 @@ class OsrmClient():
     """Client for OSRM API.
 
     See https://project-osrm.org/
-    See http://project-osrm.org/docs/v5.5.1/api/ for docs.
+    See https://project-osrm.org/docs/v5.5.1/api/ for docs.
     """
 
     def __init__(
             self,
-            base_url: str = 'http://router.project-osrm.org',
+            base_url: str = 'https://router.project-osrm.org',
             api_version: str = 'v1',
             default_profile: str = 'driving',
     ) -> None:
@@ -51,7 +51,7 @@ class OsrmClient():
         Snaps a coordinate to the street network and returns the
         nearest n matches.
 
-        See http://project-osrm.org/docs/v5.5.1/api/#nearest-service
+        See https://project-osrm.org/docs/v5.5.1/api/#nearest-service
 
         :param coordinates: List of coordinates.
         :keyword profile: OSRM Profile, defaults to client default.
@@ -81,7 +81,7 @@ class OsrmClient():
 
         Finds the fastest route between coordinates in the supplied order.
 
-        See http://project-osrm.org/docs/v5.5.1/api/#route-service
+        See https://project-osrm.org/docs/v5.5.1/api/#route-service
 
         :param coordinates: List of coordinates.
         :keyword profile: OSRM Profile, defaults to client default.
@@ -118,7 +118,7 @@ class OsrmClient():
         Computes the duration of the fastest route between all pairs
         of supplied coordinates.
 
-        See http://project-osrm.org/docs/v5.5.1/api/#table-service
+        See https://project-osrm.org/docs/v5.5.1/api/#table-service
 
         :param coordinates: List of coordinates.
         :keyword profile: OSRM Profile, defaults to client default.
@@ -158,7 +158,7 @@ class OsrmClient():
         found. The algorithm might not be able to match all points. Outliers
         are removed if they can not be matched successfully.
 
-        See http://project-osrm.org/docs/v5.5.1/api/#match-service
+        See https://project-osrm.org/docs/v5.5.1/api/#match-service
 
         :param coordinates: List of coordinates.
         :keyword profile: OSRM Profile, defaults to client default.
@@ -204,7 +204,7 @@ class OsrmClient():
         coordinates are on several disconnected islands) multiple
         trips for each connected component are returned.
 
-        See http://project-osrm.org/docs/v5.5.1/api/#trip-service
+        See https://project-osrm.org/docs/v5.5.1/api/#trip-service
 
         :param coordinates: List of coordinates.
         :keyword profile: OSRM Profile, defaults to client default.
@@ -250,7 +250,7 @@ class OsrmClient():
         https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames, and
         are supported by vector tile viewers like Mapbox GL JS.
 
-        See http://project-osrm.org/docs/v5.5.1/api/#tile-service
+        See https://project-osrm.org/docs/v5.5.1/api/#tile-service
 
         :param x: X tile
         :param y: Y tile

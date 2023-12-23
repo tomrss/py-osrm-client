@@ -7,7 +7,7 @@ from osrm.model import ServiceStatus
 
 pytest_plugins = ('pytest_asyncio',)
 
-base_url = 'http://router.project-osrm.org'
+base_url = 'https://router.project-osrm.org'
 api_v = 'v1'
 coords = [(0.1, 0.2), (0.3, 0.4)]
 
