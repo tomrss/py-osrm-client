@@ -31,7 +31,7 @@ def _build_osrm_url(
             return str(value)
 
     coord_str = ';'.join([f'{c[0]},{c[1]}' for c in coordinates])
-    url_base = f'/{service}/{api_version}/{profile}/{coord_str}'
+    url_base = f'{service}/{api_version}/{profile}/{coord_str}'
     url_params = '&'.join(
         f'{key}={_query_param(value)}'
         for key, value in kwargs.items()
