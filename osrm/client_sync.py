@@ -119,6 +119,7 @@ class OsrmClient():
             profile: Optional[str] = None,
             sources: List[int] = [],
             destinations: List[int] = [],
+            annotations: List[str] = [],
     ) -> model.OsrmTable:
         """OSRM Table service.
 
@@ -137,11 +138,13 @@ class OsrmClient():
         """
         sources_str = ";".join(sources) if sources else "all"
         destinations_str = ";".join(destinations) if destinations else "all"
+        annotations_str = ",".join(annotations) if annotations else "duration"
 
         osrm_res = self._osrm_service(
             'table', profile, coordinates,
             sources=sources_str,
             destinations=destinations_str,
+            annotations=annotations_str,
         )
         return model.OsrmTable(**osrm_res)
 

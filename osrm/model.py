@@ -242,12 +242,14 @@ class OsrmTable(ServiceResponse):
     See https://project-osrm.org/docs/v5.24.0/api/#table-service
     """
     durations: List[List[float]]
+    distances: List[List[float]]
     sources: List[Waypoint]
     destinations: List[Waypoint]
 
     def __init__(self, **data):
         super().__init__(data["code"])
-        self.durations = data["durations"]
+        self.durations = data["durations"] if "durations" in data else []
+        self.distances = data["distances"] if "distances" in data else []
         self.sources = [Waypoint(**wp) for wp in data["sources"]]
         self.destinations = [Waypoint(**wp) for wp in data["destinations"]]
 
