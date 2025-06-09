@@ -119,10 +119,11 @@ class OsrmClient():
             profile: Optional[str] = None,
             sources: List[int] = [],
             destinations: List[int] = [],
+            annotations: List[str] = [],
     ) -> model.OsrmTable:
         """OSRM Table service.
 
-        Computes the duration of the fastest route between all pairs
+        Computes the duration and/or distance of the fastest route between all pairs
         of supplied coordinates.
 
         See https://project-osrm.org/docs/v5.24.0/api/#table-service
@@ -131,17 +132,20 @@ class OsrmClient():
         :keyword profile: OSRM Profile, defaults to client default.
         :keyword sources: Use location with given index as source.
         :keyword destinations: Use location with given index as destination.
+        :keyword annotations: Return the requested table or tables in response.
 
-        :return: Distance table computed by OSRM.
+        :return: Duration and/or distance table computed by OSRM.
         :rtype: ~model.OsrmTable
         """
         sources_str = ";".join(sources) if sources else "all"
         destinations_str = ";".join(destinations) if destinations else "all"
+        annotations_str = ",".join(annotations) if annotations else "duration"
 
         osrm_res = self._osrm_service(
             'table', profile, coordinates,
             sources=sources_str,
             destinations=destinations_str,
+            annotations=annotations_str,
         )
         return model.OsrmTable(**osrm_res)
 
