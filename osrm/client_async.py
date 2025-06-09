@@ -267,7 +267,7 @@ class OsrmAsyncClient():
         :return: Tile
         :rtype: ~model.OsrmTile
         """
-        url = f'/tile/{self.api_version}/driving/({x},{y},{zoom}).mvt'
+        url = f'tile/{self.api_version}/driving/({x},{y},{zoom}).mvt'
         osrm_res = await self._get(url)
         return model.OsrmTile(**osrm_res)
 
