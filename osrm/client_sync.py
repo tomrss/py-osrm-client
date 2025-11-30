@@ -123,8 +123,8 @@ class OsrmClient():
     ) -> model.OsrmTable:
         """OSRM Table service.
 
-        Computes the duration and/or distance of the fastest route between all pairs
-        of supplied coordinates.
+        Computes the duration and/or distance of the fastest route
+        between all pairs of supplied coordinates.
 
         See https://project-osrm.org/docs/v5.24.0/api/#table-service
 
