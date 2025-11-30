@@ -88,7 +88,7 @@ class Intersection(ResultObject):
             if key not in complex_fields
         }
         super().__init__(**simple_data)
-        self.lanes = [Lane(**lane) for lane in data["lanes"]]
+        self.lanes = [Lane(**lane) for lane in data.get("lanes", [])]
 
 
 class StepManeuver(ResultObject):

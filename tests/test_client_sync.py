@@ -21,6 +21,15 @@ def test_route(froute, requests_mock):
     froute["assertions"](route)
 
 
+def test_route2(froute2, requests_mock):
+    requests_mock.get(froute2["url"], json=json.loads(froute2["res_json"]))
+
+    with OsrmClient() as osrm:
+        route = osrm.route(froute2["coords"], steps=True)
+
+    froute2["assertions"](route)
+
+
 def test_table(ftable, requests_mock):
     requests_mock.get(ftable["url"], json=json.loads(ftable["res_json"]))
 

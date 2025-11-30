@@ -25,6 +25,16 @@ async def test_route(froute, aiohttp_mock):
 
 
 @pytest.mark.asyncio
+async def test_route2(froute2, aiohttp_mock):
+    aiohttp_mock(json=json.loads(froute2["res_json"]))
+
+    async with OsrmAsyncClient() as osrm:
+        route = await osrm.route(froute2["coords"], steps=True)
+
+    froute2["assertions"](route)
+
+
+@pytest.mark.asyncio
 async def test_table(ftable, aiohttp_mock):
     aiohttp_mock(json=json.loads(ftable["res_json"]))
 
